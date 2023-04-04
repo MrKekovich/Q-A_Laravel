@@ -2,10 +2,13 @@
 
 namespace App\Service\Answer;
 
-class Service
+use App\Models\Answer;
+use App\Service\BaseService;
+
+class Service extends BaseService
 {
-    public function index()
+    public function __construct(EloquentAnswerRepository $eloquentAnswerRepository, Answer $answer)
     {
-        return 'Answer Service';
+        parent::__construct($eloquentAnswerRepository, $answer);
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Answer;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\BaseController;
 use App\Service\Answer\Service;
 
 class AnswerController extends BaseController
