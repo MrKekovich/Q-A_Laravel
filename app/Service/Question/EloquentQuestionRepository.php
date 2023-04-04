@@ -2,11 +2,12 @@
 
 namespace App\Service\Question;
 
+use App\Models\Interfaces\ModelInterface;
 use App\Models\Question;
-use App\Service\Question\Repository\QuestionRepository;
+use App\Service\RepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
-class EloquentQuestionRepository implements QuestionRepository
+class EloquentQuestionRepository implements RepositoryInterface
 {
     public function getAll(): Collection
     {
@@ -23,13 +24,13 @@ class EloquentQuestionRepository implements QuestionRepository
         return Question::create($data);
     }
 
-    public function update(array $data, Question $question): Question
+    public function update(array $data, ModelInterface $model): Question
     {
-        return tap($question)->update($data);
+        return tap($model)->update($data);
     }
 
-    public function destroy(Question $question): bool
+    public function destroy(ModelInterface $model): bool
     {
-        return $question->delete();
+        return $model->delete();
     }
 }

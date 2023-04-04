@@ -3,10 +3,11 @@
 namespace App\Service\Answer;
 
 use App\Models\Answer;
-use App\Service\Answer\Repository\AnswerRepository;
+use App\Models\Interfaces\ModelInterface;
+use App\Service\RepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 
-class EloquentAnswerRepository implements AnswerRepository
+class EloquentAnswerRepository implements RepositoryInterface
 {
 
     public function getAll(): Collection
@@ -24,13 +25,13 @@ class EloquentAnswerRepository implements AnswerRepository
         return Answer::create($data);
     }
 
-    public function update(array $data, Answer $answer): Answer
+    public function update(array $data, ModelInterface $model): Answer
     {
-        return tap($answer)->update($data);
+        return tap($model)->update($data);
     }
 
-    public function destroy(Answer $answer): bool
+    public function destroy(ModelInterface $model): bool
     {
-        return $answer->delete();
+        return $model->delete();
     }
 }

@@ -14,7 +14,7 @@ interface RepositoryInterface
 
     public function store(array $data): ModelInterface;
 
-    public function update(array $data, ModelInterface $question): ModelInterface;
+    public function update(array $data, ModelInterface $model): ModelInterface;
 
-    public function destroy(ModelInterface $question): bool;
+    public function destroy(ModelInterface $model): bool;
 }
