@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use App\Models\Interfaces\ModelInterface;
-use App\Models\Question;
 use Illuminate\Database\Eloquent\Collection;
 
 interface RepositoryInterface

@@ -2,16 +2,16 @@
 
 namespace App\Service;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Interfaces\ModelInterface;
 use Illuminate\Foundation\Http\FormRequest;
 
 abstract class BaseService
 {
-    protected $eloquent;
+    protected RepositoryInterface $eloquent;
 
-    protected Model $model;
+    protected ModelInterface $model;
 
-    public function __construct($eloquent, Model $model)
+    public function __construct($eloquent, ModelInterface $model)
     {
         $this->eloquent = $eloquent;
         $this->model = $model;
@@ -25,7 +25,7 @@ abstract class BaseService
             ->toJson();
     }
 
-    public function show($model)
+    public function show(ModelInterface $model): string
     {
         return $model->toJson();
     }
@@ -38,7 +38,7 @@ abstract class BaseService
             ->toJson();
     }
 
-    public function update(FormRequest $request, Model $model): string
+    public function update(FormRequest $request, ModelInterface $model): string
     {
         return $this
             ->eloquent
@@ -46,7 +46,7 @@ abstract class BaseService
             ->toJson();
     }
 
-    public function destroy(Model $model): bool
+    public function destroy(ModelInterface $model): bool
     {
         return $this
             ->eloquent
