@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/** палки, чтобы работало на vercel. По хорошему это всё должно находиится в api... */
+/** костыли, чтобы работало на vercel. По хорошему это всё должно находиится в api... */
 
 Route::group(['middleware' => 'api', 'prefix' => 'laravel_api'], function () {
     Route::resource('questions', 'App\Http\Controllers\Question\QuestionController');
