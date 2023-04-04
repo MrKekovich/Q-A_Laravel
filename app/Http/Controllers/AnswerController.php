@@ -19,10 +19,14 @@ class AnswerController extends BaseController
         return $this->service->index();
     }
 
-    // make store, update, delete
     public function store(StoreRequest $request)
     {
         return $this->service->store($request);
+    }
+
+    public function show(Answer $answer)
+    {
+        return $this->service->show($answer);
     }
 
     public function update(UpdateRequest $request, Answer $answer)
