@@ -11,7 +11,7 @@ abstract class BaseService
 
     protected ModelInterface $model;
 
-    public function __construct($eloquent, ModelInterface $model)
+    public function __construct(RepositoryInterface $eloquent, ModelInterface $model)
     {
         $this->eloquent = $eloquent;
         $this->model = $model;
