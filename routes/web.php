@@ -19,3 +19,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'laravel_api'], function () {
     Route::resource('questions', 'App\Http\Controllers\QuestionController');
     Route::resource('answers', 'App\Http\Controllers\AnswerController');
 });
+
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
