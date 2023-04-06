@@ -1,14 +1,15 @@
 <template>
     <div class="container">
         <!-- Question form -->
-        <create-component></create-component>
+        <create-component v-on:questionCreated="getQuestions"></create-component>
         <hr>
         <!-- List of questions -->
         <div v-if="loading">
             <h2>Loading...</h2>
         </div>
         <div v-else>
-            <div v-for="question in questions" :key="question.id">
+            <div v-for="question in questions" :key="question.id" class="mb-3">
+                <div style="setStyle(question)"></div>
                 <QuestionItemComponent :question="question"></QuestionItemComponent>
             </div>
         </div>
@@ -37,7 +38,13 @@ export default {
                 .catch(error => {
                     console.log(error)
                 })
-        }
+        },
+        // setStyle(question) {
+        //     return `
+        //     padding-bottom: ${question.p_b};
+        //     padding-top: ${question.p_t};
+        //     `
+        // }
     },
     mounted() {
         this.getQuestions()

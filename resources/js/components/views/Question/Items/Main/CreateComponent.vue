@@ -14,6 +14,7 @@
 <script>
 export default {
     name: "CreateComponent",
+    emits: ['questionCreated'],
     data() {
         return {
             title: null,
@@ -29,12 +30,7 @@ export default {
             })
                 .then(response => {
                     this.question = response.data
-                    this.$router.push({
-                        name: `question.show`,
-                        params: {
-                            id: this.question.id
-                        }
-                    })
+                    this.$emit('questionCreated');
                 })
         }
     }
