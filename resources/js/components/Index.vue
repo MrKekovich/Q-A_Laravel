@@ -1,22 +1,19 @@
 <template>
     <div class="container">
+        <router-link :to="{name: 'home'}">Home</router-link>
         <h1>Q&A Service</h1>
-        <!-- Question form -->
-        <create-component></create-component>
-        <hr>
-        <!-- List of questions -->
-        <show-component></show-component>
     </div>
+    <router-view></router-view>
 </template>
 
 <script>
-import CreateComponent from './views/Question/CreateComponent.vue'
-import ShowComponent from "./views/Question/ShowComponent.vue";
+
+import MainComponent from "./views/Question/MainComponent.vue";
+
 export default {
     name: "Index",
     components: {
-        CreateComponent,
-        ShowComponent
+        MainComponent
     }
 }
 </script>
