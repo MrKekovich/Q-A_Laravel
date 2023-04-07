@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <router-link :to="{name: 'home'}">Home</router-link>
+        <router-link :to="{name: 'home'}">Home </router-link>
+        <router-link :to="{name: 'admin'}">Admin</router-link>
         <h1>Q&A Service</h1>
     </div>
     <router-view></router-view>

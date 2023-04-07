@@ -2,11 +2,11 @@
     <div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title:</label>
-            <input type="text" class="form-control" v-model="title" placeholder="Title (required*)" maxlength="255" required>
+            <input type="text" class="form-control" v-model="question" placeholder="Title (required*)" maxlength="255" required>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Question:</label>
-            <textarea class="form-control" v-model="body" rows="3" placeholder="Question"></textarea>
+            <textarea class="form-control" v-model="answer" rows="3" placeholder="Question"></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">Padding top:</label>
@@ -38,24 +38,26 @@ export default {
     emits: ["questionCreated"],
     data() {
         return {
-            title: null,
-            body: null,
+            question: null,
+            answer: null,
             p_t: 0,
             p_b: 0,
-            question: null,
         };
     },
     methods: {
         createQuestion() {
             axios
                 .post("/laravel_api/questions", {
-                    title: this.title,
-                    body: this.body,
+                    question: this.question,
+                    answer: this.answer,
                     p_t: this.p_t,
                     p_b: this.p_b,
                 })
-                .then((response) => {
-                    this.question = response.data;
+                .then(() => {
+                    this.question = null;
+                    this.answer = null;
+                    this.p_t = 0;
+                    this.p_b = 0;
                     this.$emit("questionCreated");
                 });
         },

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('question');
             $table->text('answer');
 
-            $table->tinyInteger('p_t')->default(0);
-            $table->tinyInteger('p_b')->default(0);
+            $table->unsignedTinyInteger('p_t')->default(0);
+            $table->unsignedTinyInteger('p_b')->default(0);
 
             $table->timestamps();
         });

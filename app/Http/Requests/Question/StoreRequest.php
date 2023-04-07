@@ -22,10 +22,10 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
-            'p_t' => 'required|numeric',
-            'p_b' => 'required|numeric',
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
+            'p_t' => 'required|integer',
+            'p_b' => 'required|integer',
         ];
     }
 }
