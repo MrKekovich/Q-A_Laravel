@@ -8,9 +8,10 @@
             <h2>Loading...</h2>
         </div>
         <div v-else>
-            <div v-for="question in questions" :key="question.id" class="mb-3">
-                <div style="setStyle(question)"></div>
-                <QuestionItemComponent :question="question"></QuestionItemComponent>
+            <div v-for="question in questions" :key="question.id" class="mb-0">
+                <div :style="setStyle(question)">
+                    <QuestionItemComponent :question="question"></QuestionItemComponent>
+                </div>
             </div>
         </div>
     </div>
@@ -39,12 +40,12 @@ export default {
                     console.log(error)
                 })
         },
-        // setStyle(question) {
-        //     return `
-        //     padding-bottom: ${question.p_b};
-        //     padding-top: ${question.p_t};
-        //     `
-        // }
+        setStyle(question) {
+            return `
+            padding-bottom: ${question.p_b}px;
+            padding-top: ${question.p_t}px;
+            `
+        }
     },
     mounted() {
         this.getQuestions()

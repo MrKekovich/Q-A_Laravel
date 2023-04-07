@@ -12,14 +12,14 @@ class Question extends Model implements ModelInterface
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'body',
+        'question',
+        'answer',
         'p_t',
         'p_b'
     ];
 
-    public function answers(): HasMany
-    {
-        return $this->hasMany(Answer::class, 'question_id', 'id');
-    }
+//    public function answers(): HasMany
+//    {
+//        return $this->hasMany(Answer::class, 'question_id', 'id');
+//    }
 }

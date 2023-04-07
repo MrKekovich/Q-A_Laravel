@@ -24,6 +24,8 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'body' => 'required|string',
+            'p_t' => 'required|numeric',
+            'p_b' => 'required|numeric',
         ];
     }
 }
