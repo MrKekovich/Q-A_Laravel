@@ -18,7 +18,7 @@
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite([ 'resources/js/app.js', 'resources/sass/app.scss'])
 </head>
 <body>
 <div id="app">
