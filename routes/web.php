@@ -13,14 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/** костыли, чтобы работало на vercel. По хорошему это всё должно находиится в api... */
-
-Route::group(['middleware' => 'api', 'prefix' => 'laravel_api'], function () {
-    Route::resource('questions', 'App\Http\Controllers\QuestionController');
-//    Route::resource('answers', 'App\Http\Controllers\AnswerController');
+Route::get('/', function () {
+    return redirect()->route('questions.index');
 });
 
+Route::resource('questions', 'App\Http\Controllers\QuestionController')->only('index');
 
-Route::get('/{page}', [App\Http\Controllers\HomeController::class, 'index'])
-    ->name('home')
-    ->where('page', '.*');
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('questions', 'App\Http\Controllers\Admin\QuestionController')
+        ->except('create', 'show')
+        ->names([
+            'index' => 'admin.questions.index',
+        ]);;
+});

@@ -16,26 +16,7 @@ class QuestionController extends BaseController
 
     public function index()
     {
-        return $this->service->index();
-    }
-
-    public function store(StoreRequest $request)
-    {
-        return $this->service->store($request);
-    }
-
-    public function show(Question $question)
-    {
-        return $this->service->show($question);
-    }
-
-    public function update(UpdateRequest $request, Question $question)
-    {
-        return $this->service->update($request, $question);
-    }
-
-    public function destroy(Question $question)
-    {
-        return $this->service->destroy($question);
+        $questions = $this->service->index();
+        return view('questions.index', compact('questions'));
     }
 }

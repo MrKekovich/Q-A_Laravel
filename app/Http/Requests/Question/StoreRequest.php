@@ -24,8 +24,8 @@ class StoreRequest extends FormRequest
         return [
             'question' => 'required|string|max:255',
             'answer' => 'required|string',
-            'p_t' => 'required|integer',
-            'p_b' => 'required|integer',
+            'p_t' => ['integer', 'required', 'max_digits:1'],
+            'p_b' => ['integer', 'required', 'max_digits:1'],
         ];
     }
 }
