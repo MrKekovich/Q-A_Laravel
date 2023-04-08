@@ -11,6 +11,16 @@
                         {{ question.question }}
                     </button>
                 </h5>
+                <div class="btn-group float-right">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                            @click="editQuestion">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                            @click="deleteQuestion">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
             </div>
 
             <div :id="`question-details-${question.id}`" class="collapse" :aria-labelledby="`heading-${question.id}`"
@@ -24,9 +34,9 @@
 </template>
 
 <script>
-
 export default {
     name: "QuestionItemComponent",
+    emits: ['questionDeleted'],
     props: {
         question: {
             type: Object,
@@ -48,8 +58,21 @@ export default {
         toggleQuestion() {
             this.showQuestion = !this.showQuestion;
         },
+        editQuestion() {
+            this.$router.push({name: 'question.edit', params: {id: this.id}})
+        },
+        deleteQuestion() {
+            axios.delete(`laravel_api/questions/${this.question.id}`)
+                .then(() => {
+                    this.$emit("questionDeleted")
+                })
+                .catch(error =>{
+                    console.log(error);
+                })
+        },
     },
 }
 </script>
+
 <style scoped>
 </style>

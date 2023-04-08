@@ -12,12 +12,4 @@ class Service extends BaseService
     {
         parent::__construct($eloquentQuestionRepository, $question);
     }
-
-    public function show(ModelInterface $model): string
-    {
-        return json_encode([
-            'question' => $model,
-            'answers' => $model->answers,
-        ]);
-    }
 }

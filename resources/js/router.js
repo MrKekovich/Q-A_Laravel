@@ -15,9 +15,16 @@ const router = createRouter({
             component: () => import('./components/views/Question/MainComponent.vue')
         },
         {
+            path: '/admin',
+            name: 'admin',
+            component: () => import('./components/views/Admin/AdminComponent.vue')
+        },
+
+
+        {
             path: '/questions/:id',
-            name: 'question.show',
-            component: () => import('./components/views/Question/QuestionDetailsComponent.vue')
+            name: 'question.edit',
+            component: () => import('./components/views/Admin/Question/AdminQuestionEditComponent.vue')
         }
     ]
 })
