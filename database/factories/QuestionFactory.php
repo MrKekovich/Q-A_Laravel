@@ -19,8 +19,8 @@ class QuestionFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'body' => $this->faker->paragraph(),
-            'm-t' => $this->faker->numberBetween(0, 5),
-            'm-b' => $this->faker->numberBetween(0, 5),
+            'p_t' => $this->faker->numberBetween(0, 5),
+            'p_b' => $this->faker->numberBetween(0, 5),
         ];
     }
 }

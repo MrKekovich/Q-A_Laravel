@@ -14,8 +14,8 @@ class Question extends Model implements ModelInterface
     protected $fillable = [
         'title',
         'body',
-        'm-t',
-        'm-b'
+        'p_t',
+        'p_b'
     ];
 
     public function answers(): HasMany
