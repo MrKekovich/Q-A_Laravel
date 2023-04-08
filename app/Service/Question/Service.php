@@ -2,6 +2,7 @@
 
 namespace App\Service\Question;
 
+use App\Models\Interfaces\ModelInterface;
 use App\Models\Question;
 use App\Service\BaseService;
 

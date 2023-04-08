@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Question\StoreRequest;
 use App\Http\Requests\Question\UpdateRequest;
 use App\Models\Answer;
+use App\Models\Question;
 use App\Service\Answer\Service;
 
 class AnswerController extends BaseController

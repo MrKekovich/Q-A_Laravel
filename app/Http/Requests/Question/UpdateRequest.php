@@ -22,7 +22,10 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
+            'p_t' => 'required|max:4',
+            'p_b' => 'required|max:4',
         ];
     }
 }
