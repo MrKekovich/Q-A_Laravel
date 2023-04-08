@@ -5,11 +5,11 @@
         <!-- create form -->
         <form method="post" action="{{ route('questions.store') }}">
             <div class="mb-3">
-                <label for="question" class="form-label">Title:</label>
+                <label for="question" class="form-label">Question:</label>
                 <input type="text" class="form-control" name="question" id="question" placeholder="Title" maxlength="255" required>
             </div>
             <div class="mb-3">
-                <label for="answer" class="form-label">Question:</label>
+                <label for="answer" class="form-label">Answer:</label>
                 <textarea class="form-control" name="answer" id="answer" rows="3" placeholder="Question"></textarea>
             </div>
             <div class="mb-3">
