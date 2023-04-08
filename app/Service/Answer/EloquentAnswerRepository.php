@@ -12,7 +12,7 @@ class EloquentAnswerRepository implements RepositoryInterface
 
     public function getAll(): Collection
     {
-        return Answer::orderBy('id')->get();
+        return Answer::orderBy('id', 'desc')->get();
     }
 
     public function getById($id): Answer|null

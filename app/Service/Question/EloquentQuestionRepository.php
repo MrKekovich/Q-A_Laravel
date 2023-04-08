@@ -11,7 +11,7 @@ class EloquentQuestionRepository implements RepositoryInterface
 {
     public function getAll(): Collection
     {
-        return Question::orderBy('id')->get();
+        return Question::orderBy('id', 'desc')->get();
     }
 
     public function getById($id): Question|null
